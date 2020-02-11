@@ -1,5 +1,6 @@
 import turtle #graphics library
 from playsound import playsound
+import os
 
 wn_width = 800
 wn_height = 600
@@ -99,7 +100,9 @@ while True:
 		score_a += 1
 		pen.clear()
 		pen.write("Player A: {}   Player B: {}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
-		playsound(r"C:\Users\scylla\Desktop\Web-Dev-Projects\Python Stuff\ping-pong\oof.wav")
+		dirname = os.path.dirname(__file__)
+		filename = os.path.join(dirname, 'oof.wav')
+		playsound(filename)
 		
 	#left side
 	if ball.xcor() < -((wn_width/2)-(ball_xsize/2)):
@@ -108,7 +111,9 @@ while True:
 		score_b += 1
 		pen.clear()
 		pen.write("Player A: {}   Player B: {}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
-		playsound(r"C:\Users\scylla\Desktop\Web-Dev-Projects\Python Stuff\ping-pong\oof.wav")
+		dirname = os.path.dirname(__file__)
+		filename = os.path.join(dirname, 'oof.wav')
+		playsound(filename)
 	
 	#top side
 	if ball.ycor() > ((wn_height/2)-(ball_ysize/2)):
@@ -143,11 +148,15 @@ while True:
 	#b/w x=340-350, bounce ball back from paddle_b for all corresponding y-coordinates on paddle
 	if (ball.xcor() > 340 and ball.xcor() < 350) and (ball.ycor() < paddle_b.ycor() + 50) and (ball.ycor() > paddle_b.ycor() - 50): 
 		ball.dx *= -1
-		playsound(r"C:\Users\scylla\Desktop\Web-Dev-Projects\Python Stuff\ping-pong\bounce.wav")
+		dirname = os.path.dirname(__file__)
+		filename = os.path.join(dirname, 'bounce.wav')
+		playsound(filename)
 	
 	#b/w x=-330-340, bounce ball back from paddle_a for all corresponding y-coordinates on paddle
 	if (ball.xcor() < -330 and ball.xcor() < -340) and (ball.ycor() < paddle_a.ycor() + 50) and (ball.ycor() > paddle_a.ycor() - 50): 
 		ball.dx *= -1
-		playsound(r"C:\Users\scylla\Desktop\Web-Dev-Projects\Python Stuff\ping-pong\bounce.wav")
+		dirname = os.path.dirname(__file__)
+		filename = os.path.join(dirname, 'bounce.wav')
+		playsound(filename)
 		
 
